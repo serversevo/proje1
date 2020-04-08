@@ -1,34 +1,19 @@
  {% load static %}
 <div class="col-lg-9">
     <div class="home-slider owl-carousel owl-carousel-lazy">
+
+        {% for rs in sliderdata  %}
         <div class="home-slide">
-            <div class="owl-lazy slide-bg" data-src="{% static 'images/slider/slide-1.jpg' %}"></div>
+            <div class="owl-lazy slide-bg" data-src="{{ rs.image.url }}"></div>
             <div class="home-slide-content text-white">
-                <h3>Get up to <span>60%</span> off</h3>
-                <h1>Summer Sale</h1>
+                <h3>{{ rs.description }}</h3>
+                <h1>{{ rs.title }}</h1>
                 <p>Limited items available at this price.</p>
-                <a href="category.html" class="btn btn-dark">Shop Now</a>
+                <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="btn btn-dark">Satın Al</a>
             </div><!-- End .home-slide-content -->
         </div><!-- End .home-slide -->
+        {% endfor %}
 
-        <div class="home-slide">
-            <div class="owl-lazy slide-bg" data-src="{% static 'images/slider/slide-2.jpg' %}"></div>
-            <div class="home-slide-content">
-                <h3>OVER <span>200+</span></h3>
-                <h1>GREAT DEALS</h1>
-                <p>While they last!</p>
-                <a href="category.html" class="btn btn-dark">Shop Now</a>
-            </div><!-- End .home-slide-content -->
-        </div><!-- End .home-slide -->
 
-        <div class="home-slide">
-            <div class="owl-lazy slide-bg" data-src="{% static 'images/slider/slide-3.jpg' %}"></div>
-            <div class="home-slide-content">
-                <h3>up to <span>40%</span> off</h3>
-                <h1>NEW ARRIVALS</h1>
-                <p>Starting at $9</p>
-                <a href="category.html" class="btn btn-dark">Shop Now</a>
-            </div><!-- End .home-slide-content -->
-        </div><!-- End .home-slide -->
     </div><!-- End .home-slider -->
 </div><!-- End .col-lg-9 -->

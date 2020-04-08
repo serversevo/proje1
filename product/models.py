@@ -9,14 +9,14 @@ class Category(models.Model):
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
-    title = models.CharField(max_length=100)
-    keywords = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    title = models.CharField(blank=True, max_length=100)
+    keywords = models.CharField(blank=True, max_length=200)
+    description = models.CharField(blank=True, max_length=200)
 
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
 
-    slug = models.SlugField()#metinsel çağırım için metin değişkeni
+    slug = models.SlugField(blank=True)#metinsel çağırım için metin değişkeni
     parent = models.ForeignKey('self',blank=True, null=True, related_name='children', on_delete=models.CASCADE)#on_delete=models.CASCADE silme işleminde ona ait alt sınıfın silinmesini sağlar
     create_at = models.DateTimeField(auto_now_add=True)#sadece ekleme zamnında tarih için
     update_at = models.DateTimeField(auto_now=True)#her zaman tarih eklmesi için, hem güncelleme hem ekleme
@@ -34,13 +34,14 @@ class Product(models.Model):
         ('False', 'Hayır'),
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)#relation with Category table
-    title = models.CharField(max_length=150)
-    keywords = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    title = models.CharField(blank=True, max_length=150)
+    keywords = models.CharField(blank=True, max_length=200)
+    description = models.CharField(blank=True, max_length=200)
     image = models.ImageField(blank=True, upload_to='images/')
     price = models.FloatField()
     amount = models.IntegerField()
     detail = models.TextField()
+    slug = models.SlugField(blank=True)  # metinsel çağırım için metin değişkeni
     status = models.CharField(max_length=10, choices=STATUS)
     create_at = models.DateTimeField(auto_now_add=True)  # sadece ekleme zamnında tarih için
     update_at = models.DateTimeField(auto_now=True)

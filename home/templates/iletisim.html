@@ -19,8 +19,34 @@
     </nav>
 
     <div class="about-section">
-        <div class="container">
-           {{ setting.contact |safe }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="light-title">İLETİŞİM FORMU</h2>
+                <div class="form-group">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert-alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor%}
+                    {% endif %}
+
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="SEND FORM">
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h2 class="light-title">İLETİŞİM BİLGİLERİMİZ</h2>
+                <div class="contact-info">
+                    {{ setting.contact |safe }}
+                </div>
+            </div>
+        </div>
         </div><!-- End .container -->
     </div><!-- End .about-section -->
 
