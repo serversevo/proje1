@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31701aec-fd15-4a07-acc3-575a89bce651" name="Default Changelist" comment="footer değiştirildi">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="31701aec-fd15-4a07-acc3-575a89bce651" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project1/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,26 +106,49 @@
       <workItem from="1585301994216" duration="8049000" />
       <workItem from="1585321584535" duration="37000" />
       <workItem from="1585422829717" duration="3944000" />
-      <workItem from="1586350833104" duration="374000" />
+      <workItem from="1586350833104" duration="1477000" />
     </task>
+    <task id="LOCAL-00001" summary="Hakkımızda,iletişim ve referans sayfaları oluşturuldu.">
+      <created>1586351311024</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586351311024</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Hakkımızda,iletişim ve referans sayfaları oluşturuldu.">
+      <created>1586351396405</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586351396405</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Hakkımızda,iletişim ve referans sayfaları oluşturuldu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Hakkımızda,iletişim ve referans sayfaları oluşturuldu." />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586350995426">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1586350995426" />
-    <state x="393" y="12" key="CommitChangelistDialog2" timestamp="1586351309946">
+    <state x="393" y="12" key="CommitChangelistDialog2" timestamp="1586352457091">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="393" y="12" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1586351309946" />
+    <state x="393" y="12" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1586352457091" />
     <state x="591" y="333" key="Github.CreateGistDialog" timestamp="1586350347517">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="591" y="333" key="Github.CreateGistDialog/0.0.1536.834@0.0.1536.834" timestamp="1586350347517" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1586352416390">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1586352416390" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586348529977">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
