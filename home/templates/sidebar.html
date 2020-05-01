@@ -3,14 +3,30 @@
         <h2>TOP CATEGORIES</h2>
 
         <div class="side-menu-body">
-            <ul>
-                <li><a href="#"><i class="icon-cat-shirt"></i>Fashion</a></li>
-                <li><a href="#"><i class="icon-cat-computer"></i>Electronics</a></li>
-                <li><a href="#"><i class="icon-cat-gift"></i>Gifts</a></li>
-                <li><a href="#"><i class="icon-cat-couch"></i>Home & Garden</a></li>
-                <li><a href="#"><i class="icon-cat-computer"></i>Music</a></li>
-                <li><a href="#"><i class="icon-cat-sport"></i>Sports</a></li>
-            </ul>
+            {% load mptt_tags %}
+            {% recursetree category %}
+                <li class="dropdown side-dropdown">
+                    <a href="/category/{{ node.id }}/{{ node.slug }}" class="dropdown-toggle" {% if not node.is_leaf_node %} data-toggle="dropdown" aria-expanded="true" {% endif %}>{{ node.title }}</a>
+                    <div class="custom-menu">
+                        <div class="row">
+                            <div class="col-md-4">
+                                {% if not node.is_leaf_node %}
+                                    <ul class="list-links">
+                                        <li><a href="/category/{{ node.id }}/{{ node.slug }}">
+                                            {{ children }}
+                                        </a>
+
+                                        </li>
+
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+
+                </li>
+            {% endrecursetree %}
 
             <a href="#" class="btn btn-block btn-primary">HUGE SALE - <strong>70%</strong> Off</a>
         </div><!-- End .side-menu-body -->
