@@ -4,6 +4,7 @@ from django.db import models
 
 # Create your models here.
 from django.forms import ModelForm
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
@@ -21,7 +22,7 @@ class Category(MPTTModel):
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
 
-    slug = models.SlugField(blank=True)#metinsel çağırım için metin değişkeni
+    slug = models.SlugField(null=False,unique=True)#metinsel çağırım için metin değişkeni
     parent = TreeForeignKey('self',blank=True, null=True, related_name='children', on_delete=models.CASCADE)#on_delete=models.CASCADE silme işleminde ona ait alt sınıfın silinmesini sağlar
     create_at = models.DateTimeField(auto_now_add=True)#sadece ekleme zamnında tarih için
     update_at = models.DateTimeField(auto_now=True)#her zaman tarih eklmesi için, hem güncelleme hem ekleme
@@ -42,6 +43,9 @@ class Category(MPTTModel):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
     image_tag.short_description = 'Image'
 
+    def get_absolute_url(self):
+        return reverse('category_detail',kwargs={'slug':self.slug})
+
 class Product(models.Model):
     STATUS = (#açılan kutu
         ('True', 'Evet'),
@@ -55,7 +59,7 @@ class Product(models.Model):
     price = models.FloatField()
     amount = models.IntegerField()
     detail = RichTextUploadingField()
-    slug = models.SlugField(blank=True)  # metinsel çağırım için metin değişkeni
+    slug = models.SlugField(null=False,unique=True)  # metinsel çağırım için metin değişkeni
     status = models.CharField(max_length=10, choices=STATUS)
     create_at = models.DateTimeField(auto_now_add=True)  # sadece ekleme zamnında tarih için
     update_at = models.DateTimeField(auto_now=True)
@@ -65,6 +69,10 @@ class Product(models.Model):
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
     image_tag.short_description = 'Image'
+
+    def get_absolute_url(self):
+        return reverse('product_detail',kwargs={'slug':self.slug})
+
 
 class Images(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)#on_delete product silindiğinde imagesların silinmesi için

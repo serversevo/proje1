@@ -1,10 +1,12 @@
-from pyexpat.errors import messages
+import json
+from django.contrib import messages
 
+from django.contrib.auth import logout, authenticate, login
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from home.forms import SearchForm
+from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage
 from product.models import Product, Category, Images, Comment
 
@@ -28,13 +30,18 @@ def index(request):
     return render(request, 'index.html', context)
 
 def hakkimizda(request):
+    category = Category.objects.all()
     setting = Setting.objects.get(pk=1)#settingdeki bütün objeleri al
-    context = {'setting': setting, 'page':'hakkimizda'}
+    context = {'setting': setting,
+               'page':'hakkimizda',
+               'category': category,
+               }
     return render(request, 'hakkimizda.html', context)
 
 def referanslarimiz(request):
+    category = Category.objects.all()
     setting = Setting.objects.get(pk=1)#settingdeki bütün objeleri al
-    context = {'setting': setting, 'page':'referanslarimiz'}
+    context = {'setting': setting, 'page':'referanslarimiz','category': category,}
     return render(request, 'referanslarimiz.html', context)
 
 def iletisim(request):
@@ -48,13 +55,13 @@ def iletisim(request):
             data.message = form.cleaned_data['message']
             data.ip = request.META.get('REMOTE_ADDR')
             data.save()#veritabanına kaydet
-            messages.succes(request, "Mesajınız başarı ile gönderilmiştir.")
+            messages.success(request, "Mesajınız başarı ile gönderilmiştir.")
             return  HttpResponseRedirect('/iletisim')
 
-
+    category = Category.objects.all()
     setting = Setting.objects.get(pk=1)#settingdeki bütün objeleri al
     form = ContactFormu()
-    context = {'setting': setting, 'form': form}
+    context = {'setting': setting, 'form': form,'category': category,}
     return render(request, 'iletisim.html', context)
 
 def category_products(request,id,slug):
@@ -85,10 +92,71 @@ def product_search(request):
         if form.is_valid():
             category = Category.objects.all()
             query = form.cleaned_data['query'] #formdan bilgiyi al
-            products = Product.objects.filter(title__icontains=query)#contains sorguyu içeren başlıkları bulur,i paremetresi büyük küçük harf duyarlılığı için
+            cat_id = form.cleaned_data['cat_id']
+            if cat_id == 0:
+                products = Product.objects.filter(title__icontains=query)  # contains sorguyu içeren başlıkları bulur,i paremetresi büyük küçük harf duyarlılığı için
+            else:
+                products = Product.objects.filter(title__icontains=query,category_id=cat_id)
             context = {'products': products,
                        'category': category,
                        }
             return render(request,'products_search.html',context)
 
     return HttpResponseRedirect('/')
+
+def product_search_auto(request):
+    if request.is_ajax():
+        q = request.GET.get('term', '')
+        product = Product.objects.filter(title__icontains=q)
+        results = []
+        for rs in product:
+            product_json = {}
+            product_json = rs.title
+            results.append(product_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+def login_view(request):
+    if request.method == 'POST':#Form post edildiyse
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return HttpResponseRedirect('/')
+        else:
+            messages.warning(request, "Login Hatası ! Kullanıcı adı ya da şifre yanlış")
+            return HttpResponseRedirect('/login')
+    # Return an 'invalid login' error message.
+
+    category = Category.objects.all()
+    context = {'category': category,
+               }
+    return render(request, 'login.html', context)
+
+def signup_view(request):
+    if request.method == 'POST':  # Form post edildiyse
+        form = SignUpForm(request.POST)
+        if form.is_valid():#formun şartlarına bakılıyor,şifreler uyuyor mu vb
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return HttpResponseRedirect('/')
+
+
+    form = SignUpForm()
+    category = Category.objects.all()
+    context = {'category': category,
+               'form': form,
+                }
+    return render(request, 'signup.html', context)

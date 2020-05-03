@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block title %} İletişim ~ {{ setting.company }} {% endblock %}
+{% block title %} Sign Up ~ {{ setting.company }} {% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 
@@ -13,7 +13,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">İletişim</li>
+                <li class="breadcrumb-item active" aria-current="page">Sign Up</li>
             </ol>
         </div><!-- End .container -->
     </nav>
@@ -22,30 +22,38 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h2 class="light-title">İLETİŞİM FORMU</h2>
+                <h2 class="light-title">SIGN UP FORMU</h2>
                 <div class="form-group">
+
                     {% if messages %}
                         {% for message in messages %}
+
                             <div class="alert-alert-{{ message.tags }}" role="alert">
                                 {{ message }}
                             </div>
                         {% endfor%}
                     {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}#böyle de formdan veri alınır iletişimdeki gibi de
+                        <p>
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <small style="color: grey">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                        </p>
+                    {% endfor %}
+                    <button type="submit">Sign Up</button>
+                </form>
 
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <input type="submit" value="SEND FORM">
-                    </form>
+
                 </div>
             </div>
 
-            <div class="col-md-8">
-                <h2 class="light-title">İLETİŞİM BİLGİLERİMİZ</h2>
-                <div class="contact-info">
-                    {{ setting.contact |safe }}
-                </div>
-            </div>
         </div>
         </div><!-- End .container -->
     </div><!-- End .about-section -->

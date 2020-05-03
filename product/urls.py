@@ -10,5 +10,4 @@ urlpatterns = [
     path('addcomment/<int:id>/', pviews.addcomment, name='addcomment'),#form kontrolü
 
 
-
 ]
