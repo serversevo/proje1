@@ -139,28 +139,28 @@
                         <a href="my-account.html"></a> <i class="fas fa-user-circle" style="font-size: 30px;margin: 10px"></i></a>
                     </div>
                     <div class="dropdown-menu" >
-                    <div class="dropdownmenu-wrapper">
-                        <div class="dropdown-cart-products">
+                        <div class="dropdownmenu-wrapper">
+                            <div class="dropdown-cart-products">
 
-                            <div class="product">
-                                <div class="product-details">
-                                    <h4 class="product-title">
-                                        <a href="#">My Comments</a>
-                                    </h4>
-                                </div><!-- End .product-details -->
-                            </div><!-- End .product -->
+                                <div class="product">
+                                    <div class="product-details">
+                                        <h4 class="product-title">
+                                            <a href="#">My Comments</a>
+                                        </h4>
+                                    </div><!-- End .product-details -->
+                                </div><!-- End .product -->
 
-                            <div class="product">
-                                <div class="product-details">
-                                    <h4 class="product-title">
-                                        <a href="/logout/">Logout</a>
-                                    </h4>
-                                </div><!-- End .product-details -->
-                            </div><!-- End .product -->
+                                <div class="product">
+                                    <div class="product-details">
+                                        <h4 class="product-title">
+                                            <a href="/logout/">Logout</a>
+                                        </h4>
+                                    </div><!-- End .product-details -->
+                                </div><!-- End .product -->
 
-                        </div><!-- End .cart-product -->
-                    </div><!-- End .dropdownmenu-wrapper -->
-                </div><!-- End .dropdown-menu -->
+                            </div><!-- End .cart-product -->
+                        </div><!-- End .dropdownmenu-wrapper -->
+                    </div><!-- End .dropdown-menu -->
                 {% else %}
                     <div style="margin: 5px;color: white;"><a href="/login/" class="text-uppercase" style="color: white">Login</a> / <a href="/signup/" class="text-uppercase" style="color: white">Sign Up</a></div>
                 {% endif %}
@@ -256,6 +256,32 @@
                     <li>
                         <a href="/iletisim">İletışım</a>
                     </li>
+
+                    {% recursetree category %}
+                        <li>
+                            <a href="/content/{{ node.id }}/{{ node.slug }}" class="sf-with-ul" {% if not node.is_leaf_node %} data-toggle="dropdown" aria-expanded="true" {% endif %} >{{ node.title }}</a>
+                            <div class="megamenu megamenu-container">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                {% if not node.is_leaf_node %}
+                                                <ul>
+                                                    <li><a href="category-banner-boxed-slider.html">{{ children }}</a></li>
+                                                </ul>
+                                                {% endif %}
+
+                                            </div><!-- End .col-lg-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .col-lg-8 -->
+
+                                </div>
+                            </div><!-- End .megamenu -->
+                        </li>
+                    {% endrecursetree %}
+
+
+
                 </ul>
             </nav>
         </div><!-- End .header-bottom -->

@@ -86,6 +86,17 @@ def product_detail(request,id,slug):
                }
     return render(request, 'product_detail.html',context)
 
+
+def content_detail(request,id,slug):
+    category = Category.objects.all()
+    product = Product.objects.filter(category_id=id)
+    link = '/product/'+str(product[0].id)+'/'+product[0].slug
+    #return HttpResponse(link)
+    return HttpResponseRedirect(link)#categoryidsi idye eşit olan ürünün likini gönderdik
+
+
+
+
 def product_search(request):
     if request.method == 'POST':#Form post edildiyse
         form= SearchForm(request.POST)

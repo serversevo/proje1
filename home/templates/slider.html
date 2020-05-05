@@ -5,10 +5,10 @@
         {% for rs in sliderdata  %}
         <div class="home-slide">
             <div class="owl-lazy slide-bg" data-src="{{ rs.image.url }}"></div>
-            <div class="home-slide-content text-black-50">
-                <h3>{{ rs.description }}</h3>
-                <h1>{{ rs.title }}</h1>
-                <p>Limited items available at this price.</p>
+            <div class="home-slide-content text-black-50" >
+                <h3 style="color: white">{{ rs.description }}</h3>
+                <h1 style="color: white">{{ rs.title }}</h1>
+                <p style="color: white">Limited items available at this price.</p>
                 <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="btn btn-dark">Satın Al</a>
             </div><!-- End .home-slide-content -->
         </div><!-- End .home-slide -->
