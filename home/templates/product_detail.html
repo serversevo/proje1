@@ -85,13 +85,20 @@
 
 
                                 <div class="product-action product-all-icons">
-                                    <div class="product-single-qty">
-                                        <input class="horizontal-quantity form-control" type="text" >
-                                    </div><!-- End .product-single-qty -->
+                                    <form action="/order/addtocart/{{ product.id }}" method="post">
+                                        {% csrf_token %}
+                                        <div class="product-single-qty">
+                                            <!-- <input class="horizontal-quantity form-control" type="text" -->
+                                            <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
+                                                <span class="input-group-btn input-group-prepend"></span>
+                                                <input class="horizontal-quantity form-control" type="number" name="quantity" min="0" max="{{ product.amount }}" value="1">
+                                                <span class="input-group-btn input-group-append"></span>
+                                            </div>
+                                        </div><!-- End .product-single-qty -->
+                                        <a href="/order/addtocart/{{ product.id }}"  type="submit" class="paction add-cart" title="Add to Cart"> <span>Add to Cart</span></a>
+                                    </form>
 
-                                    <a href="cart.html" class="paction add-cart" title="Add to Cart">
-                                        <span>Add to Cart</span>
-                                    </a>
+
                                     <a href="#" class="paction add-wishlist" title="Add to Wishlist">
                                         <span>Add to Wishlist</span>
                                     </a>

@@ -8,16 +8,20 @@ from django.shortcuts import render
 # Create your views here.
 from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage
+from order.models import ShopCart
 from product.models import Product, Category, Images, Comment
 
 
 def index(request):
+    current_user = request.user
     setting = Setting.objects.get(pk=1)#settingdeki bütün objeleri al
     sliderdata = Product.objects.all()[:4]
     category = Category.objects.all()
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[:4]
     randomproducts = Product.objects.all().order_by('?')[:6]#? ürünlerin rastgele gelmesini sağlar
+    request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
+
 
     context = {'setting': setting,
                'category':category,
