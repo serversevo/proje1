@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from home.models import UserProfile
 from order.models import Order, OrderProduct
-from product.models import Category, Comment, Product, Images
+from product.models import Category, Comment, Product, Images, ProductImageForm
 from user.forms import UserUpdateForm, ProfileUpdateForm, ProductForm
 
 
@@ -129,7 +129,7 @@ def deletecomment(request, id):
     messages.success(request, 'Comment deleted..')
     return HttpResponseRedirect('/user/comments')
 
-
+@login_required(login_url='/login')  # login durumu kontrol edilir
 def user_newproduct(request):
     current_user = request.user
     if request.method == 'POST':  # Form post edildiyse
@@ -158,3 +158,54 @@ def user_newproduct(request):
     form = ProductForm()
     context = {'form': form, 'category': category, }
     return render(request, 'user_newproduct.html', context)
+
+@login_required(login_url='/login')  # login durumu kontrol edilir
+def edituserproduct(request,id):
+    product= Product.objects.get(id=id)
+    if request.method == 'POST':  # Form post edildiyse
+        form = ProductForm(request.POST, request.FILES,instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Ürün başarıyla güncellendi..")
+            return HttpResponseRedirect('/user/products'+ str(id))
+        else:
+            messages.warning(request, "Hata:" + str(form.errors))
+            return HttpResponseRedirect('user/edituserproduct')
+    else:
+        category = Category.objects.all()
+        form = ProductForm(instance=product)#formu doldurup öyle göstericez
+        context = {'form': form, 'category': category, }
+        return render(request, 'user_newproduct.html', context)
+
+@login_required(login_url='/login')  # login durumu kontrol edilir
+def deleteuserproduct(request,id):
+    current_user = request.user
+    Product.objects.filter(id=id,user_id=current_user.id).delete()
+    messages.success(request, "Ürün başarıyla silindi..")
+    return HttpResponseRedirect('/user/products')
+
+
+def productaddimage(request,id):
+    if request.method == 'POST':  # Form post edildiyse
+        lasturl = request.META.get('HTTP_REFERER')
+        form = ProductImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = Images()
+            data.title = form.cleaned_data['title']
+            data.product.id = id
+            data.image = form.cleaned_data['image']
+            data.save()
+            messages.success(request, "Resim başarılı şekilde yüklendi..")
+            return HttpResponseRedirect(lasturl)
+        else:
+            messages.warning(request, "Hata:" + str(form.errors))
+            return HttpResponseRedirect(lasturl)
+    else:
+        product = Product.objects.get(id=id)
+        images = Images.objects.filter(product_id=id)
+        form = ProductImageForm()
+        context = {'product': product,
+                   'images': images,
+                   'form': form,
+                   }
+        return render(request,'product_gallery.html',context)

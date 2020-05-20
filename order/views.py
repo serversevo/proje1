@@ -41,6 +41,7 @@ def addtocart(request,id):
         request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
         messages.success(request,"Ürün başarı ile sepete eklenmiştir.Teşekkür Ederiz..")
         return HttpResponseRedirect(url)
+
     else:#sepete ekleye basılınca
         if control == 1:  # ürün varsa güncelle
             data = ShopCart.objects.get(product_id=id)

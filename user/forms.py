@@ -1,3 +1,4 @@
+from ckeditor.widgets import CKEditorWidget
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from django import forms
@@ -50,7 +51,7 @@ class ProductForm(forms.ModelForm):
             'description': TextInput(attrs={'class': 'input', }),
             'price': TextInput(attrs={'class': 'input', }),
             'amount': TextInput(attrs={'class': 'input', }),
-            'detail': Textarea(attrs={'class': 'input', }),
+            'detail': CKEditorWidget(),
             'image': FileInput(attrs={'class': 'input', }),
             'slug': TextInput(attrs={'class': 'input', }),
             # dosya upload edebilmek için FileInput

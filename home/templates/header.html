@@ -53,18 +53,15 @@
             </div><!-- End .header-left -->
 
             <div class="header-right">
-                <p class="welcome-msg">Default welcome message! </p>
 
                 <div class="header-dropdown dropdown-expanded">
                     <a href="#">Links</a>
                     <div class="header-menu">
                         <ul>
-                            <li><a href="my-account.html">MY ACCOUNT </a></li>
-                            <li><a href="#">DAILY DEAL</a></li>
-                            <li><a href="#">MY WISHLIST </a></li>
-                            <li><a href="blog.html">BLOG</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="#" class="login-link">LOG IN</a></li>
+                            <li><a href="/user">MY ACCOUNT </a></li>
+                            <li><a href="/sss">SSS</a></li>
+                            <li><a href="/iletisim">Contact</a></li>
+                            <li><a href="/login" class="login-link">LOG IN</a></li>
                         </ul>
                     </div><!-- End .header-menu -->
                 </div><!-- End .header-dropown -->
@@ -187,17 +184,8 @@
         <div class="container">
             <nav class="main-nav">
                 <ul class="menu sf-arrows">
-                    <li class="active"><a href="/">Anasayfa</a></li>
-                    <li>
-                        <a href="/hakkimizda">Hakkımızda</a>
-                    </li>
-                    <li>
-                        <a href="/referanslar">Referanslar</a>
-                    </li>
-                    <li>
-                        <a href="/iletisim">İletışım</a>
-                    </li>
 
+                <li class="active"><a href="/">Anasayfa</a></li>
                     {% recursetree category %}
                         <li>
                             <a href="/content/{{ node.id }}/{{ node.slug }}" class="sf-with-ul" {% if not node.is_leaf_node %} data-toggle="dropdown" aria-expanded="true" {% endif %} >{{ node.title }}</a>
@@ -222,8 +210,27 @@
                     {% endrecursetree %}
 
 
+                    <li>
+                        <a href="/hakkimizda">Hakkımızda</a>
+                    </li>
+                    <li>
+                        <a href="/referanslar">Referanslar</a>
+                    </li>
+                    <li>
+                        <a href="/iletisim">İletışım</a>
+                    </li>
+
 
                 </ul>
+            {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+
             </nav>
         </div><!-- End .header-bottom -->
     </div><!-- End .header-bottom -->

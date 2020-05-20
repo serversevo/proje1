@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting, ContactFormu, ContactFormMessage
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, FAQ
 from order.models import ShopCart
 from product.models import Product, Category, Images, Comment
 
@@ -15,7 +15,7 @@ from product.models import Product, Category, Images, Comment
 def index(request):
     current_user = request.user
     setting = Setting.objects.get(pk=1)#settingdeki bütün objeleri al
-    sliderdata = Product.objects.all()[:4]
+    sliderdata = Product.objects.filter(status=True)[:4]
     category = Category.objects.all()
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[:4]
@@ -166,6 +166,13 @@ def signup_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
+
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image="images/users/user.png"
+            data.save()
+            messages.success(request,"Üyeliğininz Tamamlandı..")
             return HttpResponseRedirect('/')
 
 
@@ -175,3 +182,12 @@ def signup_view(request):
                'form': form,
                 }
     return render(request, 'signup.html', context)
+
+
+def faq(request):
+    category = Category.objects.all()
+    faq = FAQ.objects.all().order_by('number')#numbera göre sıralar
+    context = {'category': category,
+               'faq': faq,
+               }
+    return render(request, 'faq.html', context)

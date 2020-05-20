@@ -93,3 +93,19 @@ class UserProfileForm(ModelForm):
         model = UserProfile#hangi modele ait
         fields = ['phone', 'address', 'city', 'image']
 
+
+class FAQ(models.Model):
+    STATUS = (  # açılan kutu
+        ('True', 'Evet'),
+        ('False', 'Hayır'),
+    )
+    number = models.IntegerField()
+    question = models.CharField(max_length=200)
+    answer = models.TextField()#sınır koymazsan sınır olmaz
+    status = models.CharField(max_length=10, choices=STATUS)
+    create_at = models.DateTimeField(auto_now_add=True)  # sadece ekleme zamnında tarih için
+    update_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.question  # questionı döndürecek
+

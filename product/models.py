@@ -53,7 +53,7 @@ class Product(models.Model):
         ('False', 'Hayır'),
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)#relation with Category table
-    user = models.ForeignKey(User, on_delete=models.CASCADE,default="1")  # relation with User table
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,null=True)  # relation with User table
     title = models.CharField(blank=True, max_length=150)
     keywords = models.CharField(blank=True, max_length=200)
     description = models.CharField(blank=True, max_length=200)
@@ -77,7 +77,7 @@ class Product(models.Model):
 
 
 class Images(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)#on_delete product silindiğinde imagesların silinmesi için
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,)#on_delete product silindiğinde imagesların silinmesi için
     title = models.CharField(max_length=70, blank=True)#blank= true boş geçilebilmesi için
     image = models.ImageField(blank=True, upload_to='images/')
     def __str__(self):
@@ -85,6 +85,13 @@ class Images(models.Model):
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
     image_tag.short_description = 'Image'
+
+
+class ProductImageForm(ModelForm):
+    class Meta:
+        model = Images
+        fields = ['title','image','product']
+
 
 class Comment(models.Model):
     STATUS = (#açılan kutu
@@ -109,5 +116,7 @@ class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ['rate', 'subject', 'comment']
+
+
 
 

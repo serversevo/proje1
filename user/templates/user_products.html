@@ -44,10 +44,12 @@
                             <thead>
                             <tr>
                                 <th>Image</th>
+                                <th>Gallery</th>
                                 <th>Product</th>
                                 <th>Price</th>
                                 <th>Amount</th>
                                 <th>Date</th>
+                                <th></th>
                                 <th></th>
                             </tr>
 
@@ -58,10 +60,13 @@
 
                                 <tr>
                                     <td><img src="{{ rs.image.url }}" style="height: 50px"></td>
+                                    <td><a href="javascript:;" onclick="window.open('/user/productaddimage/{{ rs.id }}','gallery','height=600,width=800,top=75,left=150')">Galeriye Resim Ekle </a></td>
                                     <td><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></td>
                                     <td>{{ rs.price }}</td>
                                     <td>{{ rs.amount }}</td>
                                     <td>{{ rs.create_at }}</td>
+                                    <td><a class="btn btn-sm btn-primary" href="/user/edituserproduct/{{ rs.id }}" style="color: white"> EDIT </a></td>
+                                    <td><a class="btn btn-sm btn-primary" onclick="return confirm('Emin misiniz?')" href="/user/deleteuserproduct/{{ rs.id }}" style="color: white"> DELETE </a></td>
                                 </tr>
 
                             {% endfor %}
