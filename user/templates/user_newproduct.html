@@ -1,10 +1,11 @@
 {% extends "homebase.html" %}
 
-{% block title %} {{ profile.user_name }} {% endblock %}
+{% block title %} Order List{% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 
-{% block head %} <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' /> {% endblock %}
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'/> {% endblock %}
 
 
 
@@ -13,7 +14,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                <li class="breadcrumb-item active" aria-current="page">User Products</li>
             </ol>
         </div><!-- End .container -->
     </nav>
@@ -24,46 +25,33 @@
                 {% include "user_panel.html" %}
 
                 <div class="col-md-9">
-                    <h2 class="light-title">USER INFORMATION</h2>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
 
+                    <h2 class="light-title">USER PRODUCT LIST</h2>
 
 
                     <div class="form-group">
-                        <a href="/user/update" class="btn btn-primary float-right" style="margin:10px">UPDATE PROFİLE </a>
-                    </div><!-- End .clearfix -->
-                    <div class="form-group">
-                        <a href="/user/password" class="btn btn-primary float-right" style="margin:10px">CHANGE PASSWORD </a>
-                    </div><!-- End .clearfix -->
+                        {% if products %}
+                            {% for product in products %}
+                                <div class="alert-alert-{{ product.tags }}" role="alert">
+                                    {{ product }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
 
-
-                    <div class="contact-info">
-
-                        <table class="table" >
-                            <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Adres</th>
-                                <th>City</th>
-                            </tr>
-
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><img src="{{ profile.image.url }}" style="height: 120px"></td>
-                                <td>{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
-                                <td>{{ profile.user.email }}</td>
-                                <td>{{ profile.phone }}</td>
-                                <td>{{ profile.address }}</td>
-                                <td>{{ profile.city }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="SEND FORM">
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div><!-- End .container -->
@@ -79,7 +67,8 @@
 
                         <div class="feature-box-content">
                             <h3>Free Shipping</h3>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industr in some form.</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industr in some form.</p>
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-lg-4 -->
@@ -90,7 +79,8 @@
 
                         <div class="feature-box-content">
                             <h3>100% Money Back Guarantee</h3>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-lg-4 -->
@@ -101,7 +91,8 @@
 
                         <div class="feature-box-content">
                             <h3>Online Support 24/7</h3>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form.</p>
                         </div><!-- End .feature-box-content -->
                     </div><!-- End .feature-box -->
                 </div><!-- End .col-lg-4 -->
@@ -127,7 +118,8 @@
                     </div><!-- End .testimonial-owner -->
 
                     <blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit amet, consectetur elitad adipiscing.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit
+                            amet, consectetur elitad adipiscing.</p>
                     </blockquote>
                 </div><!-- End .testimonial -->
 
@@ -144,7 +136,8 @@
                     </div><!-- End .testimonial-owner -->
 
                     <blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit amet, consectetur elitad adipiscing.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit
+                            amet, consectetur elitad adipiscing.</p>
                     </blockquote>
                 </div><!-- End .testimonial -->
 
@@ -161,7 +154,8 @@
                     </div><!-- End .testimonial-owner -->
 
                     <blockquote>
-                        <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit amet, consectetur elitad adipiscing.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mipsum dolor sit
+                            amet, consectetur elitad adipiscing.</p>
                     </blockquote>
                 </div><!-- End .testimonial -->
             </div><!-- End .testimonials-slider -->
@@ -173,7 +167,8 @@
             <div class="row">
                 <div class="col-6 col-md-4 count-container">
                     <div class="count-wrapper">
-                        <span class="count" data-from="0" data-to="200" data-speed="2000" data-refresh-interval="50">200</span>+
+                        <span class="count" data-from="0" data-to="200" data-speed="2000"
+                              data-refresh-interval="50">200</span>+
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">MILLION CUSTOMERS</h4>
                 </div><!-- End .col-md-4 -->
@@ -187,21 +182,24 @@
 
                 <div class="col-6 col-md-4 count-container">
                     <div class="count-wrapper">
-                        <span class="count" data-from="0" data-to="24" data-speed="2000" data-refresh-interval="50">24</span><span>HR</span>
+                        <span class="count" data-from="0" data-to="24" data-speed="2000"
+                              data-refresh-interval="50">24</span><span>HR</span>
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">SUPPORT AVAILABLE</h4>
                 </div><!-- End .col-md-4 -->
 
                 <div class="col-6 col-md-4 count-container">
                     <div class="count-wrapper">
-                        <span class="count" data-from="0" data-to="265" data-speed="2000" data-refresh-interval="50">265</span>+
+                        <span class="count" data-from="0" data-to="265" data-speed="2000"
+                              data-refresh-interval="50">265</span>+
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">SUPPORT AVAILABLE</h4>
                 </div><!-- End .col-md-4 -->
 
                 <div class="col-6 col-md-4 count-container">
                     <div class="count-wrapper">
-                        <span class="count" data-from="0" data-to="99" data-speed="2000" data-refresh-interval="50">99</span><span>%</span>
+                        <span class="count" data-from="0" data-to="99" data-speed="2000"
+                              data-refresh-interval="50">99</span><span>%</span>
                     </div><!-- End .count-wrapper -->
                     <h4 class="count-title">SUPPORT AVAILABLE</h4>
                 </div><!-- End .col-md-4 -->

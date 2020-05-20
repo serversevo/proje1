@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31701aec-fd15-4a07-acc3-575a89bce651" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/order/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/templates/Shopcart_products.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/views.py" afterDir="false" />
+    <list default="true" id="31701aec-fd15-4a07-acc3-575a89bce651" name="Default Changelist" comment="sepet işlemleri">
+      <change afterPath="$PROJECT_DIR$/order/templates/Order_Completed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/templates/Order_Form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/5b2f82f45379ff2cf0a7ef3c_YEL1MFp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/cocukgiyim_boMKXZS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/nintendo1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/pcoyun1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/users/1505430031591.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/users/1505430031744.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/users/FB_IMG_1517622390145.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/change_password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_newproduct.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_order_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/hakkimizda.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/hakkimizda.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/product_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project1/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/project1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/templates/Shopcart_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/order/templates/Shopcart_products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/order/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +55,30 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db.sqlite3" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="product_product: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
@@ -61,28 +103,31 @@
     </option>
   </component>
   <component name="ProjectId" id="1YUZBuGw2MnnVgrC8ds6mxWzjE0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/order/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Django\project1\order\templates" />
-      <recent name="C:\Django\project1\order" />
       <recent name="C:\Django\project1\user\templates" />
+      <recent name="C:\Django\project1\content" />
+      <recent name="C:\Django\project1\order\templates" />
       <recent name="C:\Django\project1\user" />
-      <recent name="C:\Django\project1\home\templates" />
+      <recent name="C:\Django\project1\order" />
     </key>
   </component>
   <component name="RunManager">
@@ -149,7 +194,14 @@
       <workItem from="1588551422199" duration="219000" />
       <workItem from="1588620657944" duration="17014000" />
       <workItem from="1588642316872" duration="401000" />
-      <workItem from="1588775593391" duration="18821000" />
+      <workItem from="1588775593391" duration="19026000" />
+      <workItem from="1588889501335" duration="8614000" />
+      <workItem from="1588935959893" duration="19589000" />
+      <workItem from="1588970288118" duration="7184000" />
+      <workItem from="1589195409575" duration="24330000" />
+      <workItem from="1589397208653" duration="7618000" />
+      <workItem from="1589453290109" duration="2218000" />
+      <workItem from="1589972217815" duration="9514000" />
     </task>
     <task id="LOCAL-00001" summary="Hakkımızda,iletişim ve referans sayfaları oluşturuldu.">
       <created>1586351311024</created>
@@ -200,37 +252,46 @@
       <option name="project" value="LOCAL" />
       <updated>1588642671947</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="sepet işlemleri">
+      <created>1588800351001</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1588800351001</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Hakkımızda,iletişim ve referans sayfaları oluşturuldu." />
     <MESSAGE value="iletişim formu yapıldı,slider için ürün verileri çekildi" />
     <MESSAGE value="slider,ürün ve ürün detay sayfası yapıldı,anasayfa düzenlendi" />
     <MESSAGE value="Login,Sİgn up,Üye Profil,otamatik slug ekleme yapıldı" />
     <MESSAGE value="üye paneli,profil bilgileri,menü içerik yapıldı" />
-    <option name="LAST_COMMIT_MESSAGE" value="üye paneli,profil bilgileri,menü içerik yapıldı" />
+    <MESSAGE value="sepet işlemleri" />
+    <option name="LAST_COMMIT_MESSAGE" value="sepet işlemleri" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588285781214">
+    <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589981431147">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1588285781214" />
+    <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1589981431147" />
     <state x="516" y="273" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588247684931">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="516" y="273" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.834@0.0.1536.834" timestamp="1588247684931" />
-    <state x="370" y="24" key="CommitChangelistDialog2" timestamp="1588642670103">
+    <state x="370" y="24" key="CommitChangelistDialog2" timestamp="1588987110571">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="370" y="24" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1588642670103" />
-    <state x="411" y="168" key="FileChooserDialogImpl" timestamp="1588791705791">
+    <state x="370" y="24" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1588987110571" />
+    <state x="411" y="168" key="FileChooserDialogImpl" timestamp="1589981425007">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="411" y="168" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1588791705791" />
+    <state x="411" y="168" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589981425007" />
     <state x="591" y="333" key="Github.CreateGistDialog" timestamp="1586350347517">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -239,18 +300,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.834@0.0.1536.834" timestamp="1588285796503" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1588642687177">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1588800375169">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1588642687177" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1588800375169" />
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1589397288324">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1589397288324" />
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1586348529977">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.834@0.0.1536.834" timestamp="1586348529977" />
-    <state x="176" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1588775593625">
+    <state x="176" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1589989625773">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="176" y="255" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588775593625" />
+    <state x="176" y="255" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589989625773" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1586349512052">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

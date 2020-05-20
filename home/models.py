@@ -57,6 +57,7 @@ class ContactFormMessage(models.Model):
 
     def __str__(self):
         return self.name
+
 class ContactFormu(ModelForm):
     class Meta:
         model = ContactFormMessage#hangi modele ait

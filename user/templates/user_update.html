@@ -13,7 +13,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile Update</li>
             </ol>
         </div><!-- End .container -->
     </nav>
@@ -26,44 +26,23 @@
                 <div class="col-md-9">
                     <h2 class="light-title">USER INFORMATION</h2>
 
+                    <div class="content">
+                        <div class="media">
+                            <img src="{{ user.userprofile.image.url }}" style="height: 120px; margin-bottom: 15px ">
+                        </div>
+                        <form action="#" method="POST" enctype="multipart/form-data"><!--enctype="multipart/form-data" dosya upload için  -->
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                {{ user_form.as_p }} <!-- form yazdırma -->
+                                {{ profile_form.as_p }}
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-primary float-right" type="submit">Update</button>
+                            </div>
 
-
-                    <div class="form-group">
-                        <a href="/user/update" class="btn btn-primary float-right" style="margin:10px">UPDATE PROFİLE </a>
-                    </div><!-- End .clearfix -->
-                    <div class="form-group">
-                        <a href="/user/password" class="btn btn-primary float-right" style="margin:10px">CHANGE PASSWORD </a>
-                    </div><!-- End .clearfix -->
-
-
-                    <div class="contact-info">
-
-                        <table class="table" >
-                            <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Adres</th>
-                                <th>City</th>
-                            </tr>
-
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td><img src="{{ profile.image.url }}" style="height: 120px"></td>
-                                <td>{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
-                                <td>{{ profile.user.email }}</td>
-                                <td>{{ profile.phone }}</td>
-                                <td>{{ profile.address }}</td>
-                                <td>{{ profile.city }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div><!-- End .container -->

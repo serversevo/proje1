@@ -1,6 +1,6 @@
 {% extends "homebase.html" %}
 
-{% block title %} {{ profile.user_name }} {% endblock %}
+{% block title %} Order Comments{% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 
@@ -13,7 +13,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
-                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                <li class="breadcrumb-item active" aria-current="page">User Comments</li>
             </ol>
         </div><!-- End .container -->
     </nav>
@@ -24,16 +24,8 @@
                 {% include "user_panel.html" %}
 
                 <div class="col-md-9">
-                    <h2 class="light-title">USER INFORMATION</h2>
+                    <h2 class="light-title">USER ORDER LIST</h2>
 
-
-
-                    <div class="form-group">
-                        <a href="/user/update" class="btn btn-primary float-right" style="margin:10px">UPDATE PROFİLE </a>
-                    </div><!-- End .clearfix -->
-                    <div class="form-group">
-                        <a href="/user/password" class="btn btn-primary float-right" style="margin:10px">CHANGE PASSWORD </a>
-                    </div><!-- End .clearfix -->
 
 
                     <div class="contact-info">
@@ -41,24 +33,33 @@
                         <table class="table" >
                             <thead>
                             <tr>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Adres</th>
-                                <th>City</th>
+                                <th>Product</th>
+                                <th>Rate</th>
+                                <th>Subject</th>
+                                <th>Comment</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th></th>
                             </tr>
 
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><img src="{{ profile.image.url }}" style="height: 120px"></td>
-                                <td>{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
-                                <td>{{ profile.user.email }}</td>
-                                <td>{{ profile.phone }}</td>
-                                <td>{{ profile.address }}</td>
-                                <td>{{ profile.city }}</td>
-                            </tr>
+                            {% for rs in comments %}
+
+                                <tr>
+                                    <td>
+                                        <a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}">
+                                            <strong>{{ rs.product.title }}</strong>
+                                        </a>
+                                    </td>
+                                    <td>{{ rs.rate }}</td>
+                                    <td>{{ rs.subject }}</td>
+                                    <td>{{ rs.comment }}</td>
+                                    <td>{{ rs.status }}</td>
+                                    <td>{{ rs.create_at }}</td>
+                                    <td><a class="btn btn-block btn-sm btn-primary" href="/user/deletecomment/{{ rs.id }}" onclick="return confirm('Delete! Are you sure?')"> Delete</a></td>
+                                </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
 

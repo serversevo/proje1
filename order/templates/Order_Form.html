@@ -19,11 +19,123 @@
     </nav>
 
     <div class="container">
+    <form action="#" method="post">
+        <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="checkout-payment">
+                        <h2 class="step-title">Payment Information</h2>
+
+                        <div id="new-checkout-address" class="show">
+
+                            <div class="form-group required-field">
+                                <label for="id_first_name">Total </label>
+                                <input type="text" name="total" class="form-control" value="{{ total }} TL" required>
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group required-field">
+                                <label for="id_first_name">Credit Card Holder </label>
+                                <input type="text" name="holder" class="form-control" value="" required>
+                            </div><!-- End .form-group -->
+
+
+                            <div class="form-group required-field">
+                                <label for="id_first_name">Credit Card Number </label>
+                                <input type="text" name="number" class="form-control" value="" required>
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group required-field">
+                                <label for="id_first_name">Credit Exp Data/Year </label>
+                                <input type="text" name="ecpdate" class="form-control" placeholder="mm/yy" required>
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group required-field">
+                                <label for="id_first_name">Security Number </label>
+                                <input type="text" name="secnumber" value="" class="form-control" required>
+                            </div><!-- End .form-group -->
+
+
+                        </div><!-- End #new-checkout-address -->
+
+                    </div><!-- End .checkout-payment -->
+
+                </div><!-- End .col-lg-8 -->
+
+                <div class="col-lg-6 order-lg-first">
+                    <div class="checkout-payment">
+                        <h2 class="step-title">Shipping Details:</h2>
+
+                        <div class="form-group-custom-control">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="change-bill-address" value="1">
+                                <label class="custom-control-label" for="change-bill-address">My billing and shipping address are the same</label>
+                            </div><!-- End .custom-checkbox -->
+                        </div><!-- End .form-group -->
+
+
+                        <div id="new-checkout-address" class="show">
+
+                            {% csrf_token %}
+                            <div class="form-group required-field">
+                                <label>First Name </label>
+                                <input type="text" class="form-control" name="first_name" value="{{ user.first_name }}" required>
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group required-field">
+                                <label>Last Name </label>
+                                <input type="text" class="form-control" name="last_name" value="{{ user.last_name }}" required>
+                            </div><!-- End .form-group -->
+
+
+                            <div class="form-group required-field">
+                                <label>Address </label>
+                                <input type="text" class="form-control" name="address" value="{{ profile.address }}" required></div><!-- End .form-group -->
+
+                            <div class="form-group">
+                                <label>City</label>
+                                <div class="select-custom">
+                                    <select class="form-control" name="city">
+                                        <option value="{{profile.city}}" selected>{{profile.city}}</option>
+                                        <option value="İs">İstanbul</option>
+                                    </select>
+                                </div><!-- End .select-custom -->
+                            </div><!-- End .form-group -->
+
+
+                            <div class="form-group required-field">
+                                <label>Phone Number </label>
+                                <div class="form-control-tooltip">
+                                    <input type="text" class="form-control" name="phone" value="{{ profile.phone }}" required>
+                                    <span class="input-tooltip" data-toggle="tooltip" title="For delivery questions." data-placement="right"><i class="icon-question-circle"></i></span>
+                                </div><!-- End .form-control-tooltip -->
+                            </div><!-- End .form-group -->
+
+                            <div class="form-group-custom-control">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="address-save">
+                                    <label class="custom-control-label" for="address-save">Save in Address book</label>
+                                </div><!-- End .custom-checkbox -->
+                            </div><!-- End .form-group -->
+
+                        </div><!-- End #new-checkout-address -->
+
+                        <div class="form-group">
+                            <button type="submit"  class="btn btn-primary float-right">Complete Order</button>
+                        </div><!-- End .clearfix -->
+
+
+                    </div><!-- End .checkout-payment -->
+                </div><!-- End .col-lg-6 -->
+
+        </div><!-- End .row -->
+ </form>
+
+
         <div class="row">
             <div class="col-lg-8">
                 <div class="cart-table-container">
                     <table class="table table-cart">
-                    <h2>Paket Listesi</h2>
+                        <h2>Paket Listesi</h2>
                         <thead>
                         <tr>
                             <th class="product-col">Product</th>
@@ -173,13 +285,11 @@
                         </tfoot>
                     </table>
 
-                    <div class="checkout-methods">
-                        <a href="/order/orderproduct" class="btn btn-block btn-sm btn-primary">Place Order </a>
-                        <a href="#" class="btn btn-link btn-block">Check Out with Multiple Addresses</a>
-                    </div><!-- End .checkout-methods -->
                 </div><!-- End .cart-summary -->
             </div><!-- End .col-lg-4 -->
         </div><!-- End .row -->
+
+
     </div><!-- End .container -->
 
 

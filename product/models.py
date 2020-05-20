@@ -48,10 +48,12 @@ class Category(MPTTModel):
 
 class Product(models.Model):
     STATUS = (#açılan kutu
+        ('New', 'Yeni'),
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)#relation with Category table
+    user = models.ForeignKey(User, on_delete=models.CASCADE,default="1")  # relation with User table
     title = models.CharField(blank=True, max_length=150)
     keywords = models.CharField(blank=True, max_length=200)
     description = models.CharField(blank=True, max_length=200)
@@ -60,7 +62,7 @@ class Product(models.Model):
     amount = models.IntegerField()
     detail = RichTextUploadingField()
     slug = models.SlugField(null=False,unique=True)  # metinsel çağırım için metin değişkeni
-    status = models.CharField(max_length=10, choices=STATUS)
+    status = models.CharField(max_length=10, choices=STATUS,default='New')
     create_at = models.DateTimeField(auto_now_add=True)  # sadece ekleme zamnında tarih için
     update_at = models.DateTimeField(auto_now=True)
     def __str__(self): #alt kategori olduğu sürece artarda getitir
@@ -107,3 +109,5 @@ class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ['rate', 'subject', 'comment']
+
+
