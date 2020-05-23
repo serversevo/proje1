@@ -90,7 +90,7 @@ class Images(models.Model):
 class ProductImageForm(ModelForm):
     class Meta:
         model = Images
-        fields = ['title','image','product']
+        fields = ['title','image',]
 
 
 class Comment(models.Model):

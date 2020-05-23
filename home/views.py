@@ -19,7 +19,7 @@ def index(request):
     category = Category.objects.all()
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[:4]
-    randomproducts = Product.objects.all().order_by('?')[:6]#? ürünlerin rastgele gelmesini sağlar
+    randomproducts = Product.objects.all().order_by('?')[:8]#? ürünlerin rastgele gelmesini sağlar
     request.session['cart_items'] = ShopCart.objects.filter(user_id=current_user.id).count()
 
 

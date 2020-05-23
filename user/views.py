@@ -113,7 +113,7 @@ def comments(request):
 def products(request):
     category = Category.objects.all()
     current_user = request.user
-    pro = Product.objects.filter(user_id=current_user.id, status='True')
+    pro = Product.objects.filter(user_id=current_user.id,)
     # pro = Product.objects.all()
     context = {
         'category': category,
@@ -191,8 +191,8 @@ def productaddimage(request,id):
         form = ProductImageForm(request.POST, request.FILES)
         if form.is_valid():
             data = Images()
+            data.product_id = id
             data.title = form.cleaned_data['title']
-            data.product.id = id
             data.image = form.cleaned_data['image']
             data.save()
             messages.success(request, "Resim başarılı şekilde yüklendi..")
